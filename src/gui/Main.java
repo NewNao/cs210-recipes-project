@@ -12,6 +12,7 @@ import javafx.stage.Stage;
 import javafx.stage.StageStyle;
 
 public class Main extends Application {
+    String appName = "Nao's Kitchen";
     Stage window;
     Scene mainScene;
     Button enterRecipeOptionButton, viewRecipeOptionButton, openPantryOptionButton, openGroceryListOptionButton;
@@ -27,7 +28,7 @@ public class Main extends Application {
     private void setUpWindow(Stage primaryStage){
         window = primaryStage;
         window.setScene(makeMainScene());
-        window.setTitle("Nao's Kitchen App");
+        window.setTitle(appName);
         window.initStyle(StageStyle.DECORATED);
     }
 
@@ -65,8 +66,7 @@ public class Main extends Application {
         Insets inset = new Insets(10, 40, 10, 40);
 
         layout1.setMargin(mainMenuText, inset);
-
-        layout1.setMargin(mainMenuOptionText, new Insets(10, 20, 10, 20));
+        layout1.setMargin(mainMenuOptionText, inset);
         layout1.setMargin(enterRecipeOptionButton, inset);
         layout1.setMargin(viewRecipeOptionButton, inset);
         layout1.setMargin(openPantryOptionButton, inset);
