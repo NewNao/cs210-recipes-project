@@ -12,7 +12,7 @@ import javafx.stage.Stage;
 import javafx.stage.StageStyle;
 
 public class Main extends Application {
-    String appName = "Nao's Kitchen";
+    final String appName = "Nao's Kitchen";
     Stage window;
     Scene mainScene;
     Button enterRecipeOptionButton, viewRecipeOptionButton, openPantryOptionButton, openGroceryListOptionButton;
@@ -21,6 +21,7 @@ public class Main extends Application {
     @Override
     public void start(Stage primaryStage) throws Exception {
         setUpWindow(primaryStage);
+        makeTheMainButtonsDoThings();
         window.show();
     }
 
@@ -81,4 +82,13 @@ public class Main extends Application {
     private void stylizeButton(Button button){
         button.fontProperty().setValue(new Font("Courier New", 15));
     }
+
+    // EFFECTS: calls appropriate run-method based on which button is clicked
+    // todo: add in the other 3 buttons
+    private void makeTheMainButtonsDoThings(){
+        enterRecipeOptionButton.setOnAction(e->window.setScene(Form.makeScene()));
+        //viewRecipeOptionButton.setOnAction(e->window.setScene(makeViewRecipeScene()));
+        //openPantryOptionButton.setOnAction(e->window.setScene(makePantryScene()));
+    }
+
 }
