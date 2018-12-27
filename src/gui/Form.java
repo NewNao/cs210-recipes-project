@@ -16,7 +16,7 @@ import javafx.scene.text.Text;
 import javafx.stage.Stage;
 import model.recipes.Recipe;
 
-public class Form {
+public class Form extends Main{
     static GridPane formPane;
     static Scene formScene;
 
@@ -112,8 +112,7 @@ public class Form {
         Button backToMainMenuButton = new Button("return to main menu");
         backToMainMenuButton.fontProperty().setValue(new Font("Courier New", 10));
         formPane.add(backToMainMenuButton, 0, 8);
-        //todo: below method
-        //backToMainMenuButton.setOnAction(e -> window.setScene(mainScene));
+        backToMainMenuButton.setOnAction(e -> window.setScene(mainScene));
 
         Button submitRecipeButton = new Button("submit recipe to recipe book");
         submitRecipeButton.fontProperty().setValue(new Font("Courier New", 12));

@@ -13,8 +13,8 @@ import javafx.stage.StageStyle;
 
 public class Main extends Application {
     final String appName = "Nao's Kitchen";
-    Stage window;
-    Scene mainScene;
+    protected static Stage window;
+    protected static Scene mainScene;
     Button enterRecipeOptionButton, viewRecipeOptionButton, openPantryOptionButton, openGroceryListOptionButton;
 
 
@@ -88,7 +88,7 @@ public class Main extends Application {
     private void makeTheMainButtonsDoThings(){
         enterRecipeOptionButton.setOnAction(e->window.setScene(Form.makeScene()));
         //viewRecipeOptionButton.setOnAction(e->window.setScene(makeViewRecipeScene()));
-        //openPantryOptionButton.setOnAction(e->window.setScene(makePantryScene()));
+        openPantryOptionButton.setOnAction(e->window.setScene(Pantry.makeScene()));
     }
 
 }
