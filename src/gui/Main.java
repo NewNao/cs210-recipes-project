@@ -10,16 +10,23 @@ import javafx.scene.text.Font;
 import javafx.scene.text.Text;
 import javafx.stage.Stage;
 import javafx.stage.StageStyle;
+import model.recipes.RecipeBook;
 
 public class Main extends Application {
+    protected static RecipeBook recipeBook;
     final String appName = "Nao's Kitchen";
     protected static Stage window;
     protected static Scene mainScene;
     Button enterRecipeOptionButton, viewRecipeOptionButton, openPantryOptionButton, openGroceryListOptionButton;
 
+    //fields primarily used by subclasses
+    protected static Text featureNotSupportedText = new Text("This feature is not yet supported");
+    protected static Button backToMainMenuButton;
+
 
     @Override
     public void start(Stage primaryStage) throws Exception {
+        recipeBook = new RecipeBook();
         setUpWindow(primaryStage);
         makeTheMainButtonsDoThings();
         window.show();
@@ -59,6 +66,9 @@ public class Main extends Application {
         openGroceryListOptionButton = new Button("open grocery list");
         stylizeButton(openGroceryListOptionButton);
 
+        backToMainMenuButton = new Button("return to main menu");
+        stylizeButton(backToMainMenuButton);
+
 
         // set up VBox layout with text and buttons
         VBox layout1 = new VBox(20);
@@ -89,6 +99,8 @@ public class Main extends Application {
         enterRecipeOptionButton.setOnAction(e->window.setScene(Form.makeScene()));
         //viewRecipeOptionButton.setOnAction(e->window.setScene(makeViewRecipeScene()));
         openPantryOptionButton.setOnAction(e->window.setScene(Pantry.makeScene()));
+        openGroceryListOptionButton.setOnAction(e->window.setScene(GroceryList.makeScene()));
+        backToMainMenuButton.setOnAction(e->window.setScene(mainScene));
     }
 
 }

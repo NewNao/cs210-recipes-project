@@ -145,7 +145,7 @@ public class Form extends Main{
                 }
 
                 //todo: below method
-                //recipeBook.add(newRecipe);
+                recipeBook.addRecipe(newRecipe);
                 Text recipeSubmitted = new Text("recipe entered. please return to main menu");
                 recipeSubmitted.setFont(new Font("Courier New", 9));
                 recipeSubmitted.setFill(Color.CORAL);
