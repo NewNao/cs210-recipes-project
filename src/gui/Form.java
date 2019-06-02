@@ -16,11 +16,14 @@ import javafx.scene.text.Text;
 import javafx.stage.Stage;
 import model.recipes.Recipe;
 
-public class Form extends Main{
+import static gui.Main.mainScene;
+import static gui.Main.recipeBook;
+
+public class Form implements AppGUI{
     static GridPane formPane;
     static Scene formScene;
 
-    public static Scene makeScene(){
+    public static Scene makeScene(Stage window){
         Recipe newRecipe = new Recipe();
         setupGridPane();
 

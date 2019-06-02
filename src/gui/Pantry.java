@@ -5,7 +5,7 @@ import javafx.geometry.Pos;
 import javafx.scene.Scene;
 import javafx.scene.layout.GridPane;
 
-public class Pantry extends Main {
+public class Pantry implements AppGUI{
     static GridPane pantryPane;
     static Scene pantryScene;
 
@@ -17,6 +17,7 @@ public class Pantry extends Main {
 
         pantryPane.add(featureNotSupportedText, 1,1);
         pantryPane.add(backToMainMenuButton, 1, 2);
+        pantryPane.add(stringy, 1, 3);
 
 
 

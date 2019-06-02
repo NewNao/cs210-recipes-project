@@ -12,16 +12,12 @@ import javafx.stage.Stage;
 import javafx.stage.StageStyle;
 import model.recipes.RecipeBook;
 
-public class Main extends Application {
+public class Main extends Application implements AppGUI{
+    Stage window = new Stage();
     protected static RecipeBook recipeBook;
     final String appName = "Nao's Kitchen";
-    protected static Stage window;
     protected static Scene mainScene;
     Button enterRecipeOptionButton, viewRecipeOptionButton, openPantryOptionButton, openGroceryListOptionButton;
-
-    //fields primarily used by subclasses
-    protected static Text featureNotSupportedText = new Text("This feature is not yet supported");
-    protected static Button backToMainMenuButton;
 
 
     @Override
@@ -66,7 +62,6 @@ public class Main extends Application {
         openGroceryListOptionButton = new Button("open grocery list");
         stylizeButton(openGroceryListOptionButton);
 
-        backToMainMenuButton = new Button("return to main menu");
         stylizeButton(backToMainMenuButton);
 
 
@@ -96,7 +91,7 @@ public class Main extends Application {
     // EFFECTS: calls appropriate run-method based on which button is clicked
     // todo: add in the other 3 buttons
     private void makeTheMainButtonsDoThings(){
-        enterRecipeOptionButton.setOnAction(e->window.setScene(Form.makeScene()));
+        enterRecipeOptionButton.setOnAction(e->window.setScene(Form.makeScene(window)));
         //viewRecipeOptionButton.setOnAction(e->window.setScene(makeViewRecipeScene()));
         openPantryOptionButton.setOnAction(e->window.setScene(Pantry.makeScene()));
         openGroceryListOptionButton.setOnAction(e->window.setScene(GroceryList.makeScene()));

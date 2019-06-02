@@ -5,7 +5,7 @@ import javafx.geometry.Pos;
 import javafx.scene.Scene;
 import javafx.scene.layout.GridPane;
 
-public class GroceryList extends Main {
+public class GroceryList implements AppGUI {
     static GridPane groceryListPane;
     static Scene groceryListScene;
 
